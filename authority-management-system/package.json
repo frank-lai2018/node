@@ -1,0 +1,14 @@
+{
+  "name": "authority-management-system",
+  "version": "1.0.0",
+  "description": "權限管理系統",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "frank",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

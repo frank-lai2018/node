@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>留言本</title>
+<!-- 
+    瀏覽器收到 HTML 響應內容之後，就要開始從上到下依次解析，
+    當在解析的過程中，如果發現：
+      link
+      script
+      img
+      iframe
+      video
+      audio
+    等帶有 src 或者 href（link） 屬性標籤（具有外鏈的資源）的時候，瀏覽器會自動對這些資源發起新的請求。
+   -->
+   <!-- 
+      注意：在服務端中，文件中的路徑就不要去寫相對路徑了。
+      因為這個時候所有的資源都是通過 url 標識來獲取的
+      我的服務器開放了 /public/ 目錄
+      所以這裡的請求路徑都寫成：/public/xxx
+      / 在這裡就是 url 根路徑的意思。
+      瀏覽器在真正發請求的時候會最終把 http://127.0.0.1:3000 拼上
+
+      不要再想文件路徑了，把所有的路徑都想像成 url 地址
+    -->
+  <link rel="stylesheet" href="/public/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+  <div class="header container">
+    <div class="page-header">
+      <h1>HTML <small>Subtext for header</small></h1>
+      <a class="btn btn-success" href="/post">发表留言</a>
+    </div>
+  </div>
+  <div class="comments container">
+    <ul class="list-group">
+      <!-- {{each comments}}
+      <li class="list-group-item">{{ $value.name }}说：{{ $value.message }} <span class="pull-right">{{ $value.dateTime }}</span></li>
+      {{/each}} -->
+      <% comments.forEach(function(comment){ %>
+        <li class="list-group-item"><%= comment.name %> 說: <%= comment.message%> <span class="pull-right"><%=comment.date%></span></li>
+      <% }); %>
+    </ul>
+  </div>
+</body>
+
+</html>
